@@ -1,0 +1,45 @@
+name: 'Redline PR Reviewer'
+description: 'Automated GitHub pull request review bot with deterministic secret detection and structured LLM review'
+author: 'Redline Team'
+branding:
+  icon: 'edit-3'
+  color: 'red'
+
+inputs:
+  github_token:
+    description: 'GitHub token for fetching diffs and posting review comments'
+    required: true
+    default: ${{ github.token }}
+  openai_api_key:
+    description: 'OpenAI API key for structured code review analysis'
+    required: true
+  openai_model:
+    description: 'OpenAI model name to use for review'
+    required: false
+    default: 'gpt-4o-mini'
+  severity_threshold:
+    description: 'Minimum severity threshold to report (low, medium, high, critical)'
+    required: false
+    default: 'low'
+  max_files:
+    description: 'Maximum number of files to analyze per PR'
+    required: false
+    default: '25'
+  post_review:
+    description: 'Whether to post review comments directly to the pull request'
+    required: false
+    default: 'true'
+
+outputs:
+  findings_count:
+    description: 'Total number of findings discovered'
+  critical_count:
+    description: 'Number of critical severity findings'
+  high_count:
+    description: 'Number of high severity findings'
+  review_summary:
+    description: 'Markdown summary of the review'
+
+runs:
+  using: 'node20'
+  main: 'dist/index.js'

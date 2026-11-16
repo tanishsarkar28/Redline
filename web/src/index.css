@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+:root {
+  --bg-paper: #f4f1ea;
+  --bg-subtle: #ece7dc;
+  --bg-card: #f9f7f2;
+  --bg-accent-tint: rgba(200, 50, 30, 0.08);
+  --bg-green-tint: rgba(30, 130, 60, 0.08);
+  --ink: #161514;
+  --ink-muted: #5e5a54;
+  --ink-faint: #9c978e;
+  --border-hairline: #d8d1c2;
+  --border-strong: #161514;
+  --red-pen: #c8321e;
+  --red-pen-hover: #ad2716;
+  --focus-ring: #c8321e;
+}
+
+html.dark {
+  --bg-paper: #161718;
+  --bg-subtle: #1e2022;
+  --bg-card: #191a1c;
+  --bg-accent-tint: rgba(215, 68, 48, 0.12);
+  --bg-green-tint: rgba(40, 160, 80, 0.12);
+  --ink: #e5e3de;
+  --ink-muted: #96928a;
+  --ink-faint: #5e5b55;
+  --border-hairline: #2d3034;
+  --border-strong: #e5e3de;
+  --red-pen: #d74430;
+  --red-pen-hover: #f05540;
+  --focus-ring: #d74430;
+}
+
+body {
+  background-color: var(--bg-paper);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.font-serif {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'IBM Plex Mono', 'SF Mono', monospace;
+}
+
+.font-sans {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Hairline borders */
+.hairline-border {
+  border: 1px solid var(--border-hairline);
+}
+
+.hairline-b {
+  border-bottom: 1px solid var(--border-hairline);
+}
+
+.hairline-t {
+  border-top: 1px solid var(--border-hairline);
+}
+
+.hairline-l {
+  border-left: 1px solid var(--border-hairline);
+}
+
+.hairline-r {
+  border-right: 1px solid var(--border-hairline);
+}
+
+/* Redline Proofreader marks */
+.redline-gutter {
+  border-left: 2px solid var(--red-pen);
+}
+
+.redline-strike {
+  text-decoration: line-through;
+  text-decoration-color: var(--red-pen);
+  text-decoration-thickness: 1.5px;
+}
+
+.redline-marker {
+  color: var(--red-pen);
+  font-weight: 700;
+}
+
+/* Sharp focus ring */
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 1px;
+}
+
+/* Keyboard hint styling */
+.kbd-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  line-height: 1;
+  padding: 0.15rem 0.35rem;
+  background-color: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  color: var(--ink-muted);
+  border-radius: 2px;
+}
+
+/* Custom scrollbar matching paper */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-paper);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-hairline);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ink-faint);
+}

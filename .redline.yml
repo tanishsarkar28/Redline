@@ -1,0 +1,41 @@
+# Redline Review Bot Configuration
+# Place this file in the root of your target repository
+
+# Model to use for review (default: gpt-4o-mini, or gpt-4o)
+model: gpt-4o-mini
+
+# Minimum severity threshold to post to GitHub: low | medium | high | critical
+severity_threshold: low
+
+# Maximum number of changed files to analyze in a single pull request
+max_files: 25
+
+# Glob patterns to ignore from review
+ignore:
+  - "**/*.lock"
+  - "package-lock.json"
+  - "yarn.lock"
+  - "pnpm-lock.yaml"
+  - "Cargo.lock"
+  - "Gemfile.lock"
+  - "composer.lock"
+  - "**/*.min.js"
+  - "**/*.min.css"
+  - "**/*.map"
+  - "dist/**"
+  - "build/**"
+  - ".next/**"
+  - "node_modules/**"
+  - "vendor/**"
+  - "public/**"
+  - "docs/**"
+  - "**/*.md"
+  - "**/*.svg"
+  - "**/*.png"
+  - "**/*.jpg"
+  - "**/*.ico"
+
+# Secret detection settings
+secret_scan:
+  enabled: true
+  entropy_threshold: 4.5
